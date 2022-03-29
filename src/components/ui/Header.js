@@ -119,17 +119,16 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function Header(props) {
+export default function Header({ setValue, setSelectedIndex, value, selectedIndex }) {
   const classes = useStyles()
   const theme = useTheme()
   const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const matches = useMediaQuery(theme.breakpoints.down("md"))
 
   const [openDrawer, setOpenDrawer] = useState(false)
-  const [value, setValue] = useState(0)
   const [anchorEl, setAnchorEl] = useState(null)
   const [openMenu, setOpenMenu] = useState(false)
-  const [selectedIndex, setSelectedIndex] = useState(0)
+
 
   const handleChange = (e, newValue) => {
     setValue(newValue)
